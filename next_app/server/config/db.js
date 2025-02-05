@@ -1,5 +1,6 @@
 const { ServerApiVersion } = require("mongodb");
 
+const mongoSrv = process.env.MONGO_URL || "fake_db";
 const username = encodeURIComponent("travelbetablog");
 const password = encodeURIComponent("tr@v3lb3t@b10g");
 const cluster = "travelbetablog.v1wir.mongodb.net";
@@ -19,7 +20,7 @@ const options = {
     },
 };
 
-const uri = `mongodb+srv://${username}:${password}@${cluster}/${clusterName}`;
+const uri = `${mongoSrv}://${username}:${password}@${cluster}/${clusterName}`;
 // console.log("URI: ", uri);
 
 
