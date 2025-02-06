@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": true,   // Allow JavaScript files
+    "checkJs": false,   // Do not type-check JavaScript
     "skipLibCheck": true,
-    "strict": true,
+    "strict": true,    // Enforce TypeScript rules for .tsx, but not .jsx
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -29,10 +30,7 @@
       "**/*.js",    // Include all JavaScript files (.ts) anywhere in the project.
       "**/*.jsx",   // Include all React JavaScript files (.jsx).
       ".next/types/**/*.ts",    // Include Next.js generated types for better TypeScript support.
-
-      // EXPLICITLY DEFINED
-      "src/**/*.tsx",
-      "src/**/*.jsx",   
+      "src/**/*"    // EXPLICITLY DEFINED
   ],
   "exclude": ["node_modules"]
 }
