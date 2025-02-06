@@ -38,7 +38,7 @@ export default function Home() {
 
             <main>
                 <h1>🚀 Next.js + Express Integration</h1>
-                {data ? <p>{data.message}</p> : <p>Loading...</p>}
+                {/* {data ? <p>{data.message}</p> : <p>Loading...</p>} */}
                 {/* <h1>🚀 Welcome to My Next.js + Express App!</h1> */}
                 <p>This is the homepage served by Next.js via Express.</p>
                 <a href="/about" style={{ textDecoration: "none", color: "blue" }}>Go to About Page →</a>
