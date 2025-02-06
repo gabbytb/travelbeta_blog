@@ -37,11 +37,15 @@ const geistMono = Geist_Mono({
 //     );
 // };
 
-
-
+export const metadata = {
+    title: 'Acme',
+    openGraph: {
+        title: 'Acme',
+        description: 'Acme is a...',
+    },
+};
 
 const RootLayout = ({ children }) => {
-
     return (
         <html lang="en">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
