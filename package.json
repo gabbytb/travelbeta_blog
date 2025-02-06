@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon server/server.js",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "next lint"
