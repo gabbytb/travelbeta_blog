@@ -12,6 +12,13 @@ export default function About() {
     // SET PAGE TITLE
     useEffect(() => {
         document.title = "Travelbeta Blog: About us";
+        var meta=document.getElementsByTagName("meta");
+        for (var i = 0; i < meta.length; i++) {
+            if (meta[i].name.toLowerCase() == "description") {
+                meta[i].content = document.getElementsByClassName("Category-H1")[0].innerHTML;
+                console.log("DESCRIPTION: ", meta[i].content);                
+            };
+        };
     }, []);
     // // SET PAGE TITLE
 
