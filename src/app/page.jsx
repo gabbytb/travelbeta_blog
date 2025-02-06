@@ -7,6 +7,7 @@ import axios from "axios";
 
 
 
+
 export default function Home() {
 
     const [data, setData] = useState(null);
@@ -32,8 +33,10 @@ export default function Home() {
         <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         
             <Head>
-                <title>Home | My Next.js + Express App</title>
-                <meta name="description" content="Welcome to my Next.js app powered by Express.js" />
+                <title>Travelbeta Blog: Home</title>
+                <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
+                <meta property="og:title" content="Travelbeta Blog: Home" />
+                <meta property="og:description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures." />
             </Head>
 
             <main>
