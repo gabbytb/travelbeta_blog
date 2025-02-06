@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import axios from "axios";
 
@@ -30,26 +29,6 @@ export default function Home() {
 
     return (
         <>        
-            <Head>
-                <title>Travelbeta Blog: Home</title>
-                <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/favicon.ico" />
-
-                {/* Open Graph (OG) Meta Tags for Facebook, LinkedIn, etc. */}
-                <meta property="og:title" content="Travelbeta Blog: Home" />
-                <meta property="og:description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
-                {/* <meta property="og:image" content="https://example.com/og-image.jpg" />
-                <meta property="og:url" content="https://example.com/blog-post" /> */}
-                <meta property="og:type" content="article" />
-
-                {/* Twitter Meta Tags */}
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Travelbeta Blog: Home" />
-                <meta name="twitter:description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
-                {/* <meta name="twitter:image" content="https://example.com/twitter-image.jpg" /> */}
-            </Head>
-        
             <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
 
                 <header>

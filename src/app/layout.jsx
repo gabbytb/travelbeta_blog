@@ -1,5 +1,6 @@
 import React from "react";
 // import type { Metadata } from "next";
+import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
@@ -49,6 +50,25 @@ const geistMono = Geist_Mono({
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
+            <Head>
+                <title>Travelbeta Blog: Home</title>
+                <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <link rel="icon" href="/favicon.ico" />
+
+                {/* Open Graph (OG) Meta Tags for Facebook, LinkedIn, etc. */}
+                <meta property="og:title" content="Travelbeta Blog: Home" />
+                <meta property="og:description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
+                {/* <meta property="og:image" content="https://example.com/og-image.jpg" />
+                <meta property="og:url" content="https://example.com/blog-post" /> */}
+                <meta property="og:type" content="article" />
+
+                {/* Twitter Meta Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Travelbeta Blog: Home" />
+                <meta name="twitter:description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
+                {/* <meta name="twitter:image" content="https://example.com/twitter-image.jpg" /> */}
+            </Head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 {children}
                 <Analytics />
