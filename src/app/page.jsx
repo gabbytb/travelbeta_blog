@@ -10,7 +10,7 @@ import axios from "axios";
 export default function Home() {
 
     const [data, setData] = useState(null);
-    console.log("DATA: ", data);
+    // console.log("DATA: ", data);
 
 
 
