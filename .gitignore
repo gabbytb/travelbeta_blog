@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /server
-/src
+/config
 /logs
 /.pnp
 .pnp.*
