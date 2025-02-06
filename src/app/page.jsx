@@ -8,11 +8,11 @@ import axios from "axios";
 
 export default function Home() {
 
-    // SET PAGE TITLE
-    useEffect(() => {
-        document.title = "Travelbeta Blog: Home";
-    }, []);
-    // SET PAGE TITLE
+    // // SET PAGE TITLE
+    // useEffect(() => {
+    //     document.title = "Travelbeta Blog: Home";
+    // }, []);
+    // // SET PAGE TITLE
 
  
     
