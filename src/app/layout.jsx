@@ -1,6 +1,6 @@
 import React from "react";
 // import type { Metadata } from "next";
-import Head from "next/head";
+import head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
@@ -50,7 +50,7 @@ const geistMono = Geist_Mono({
 const RootLayout = ({ children }) => {
     return (
         <html lang="en">
-            <Head>
+            <head>
                 <title>Travelbeta Blog: Home</title>
                 <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,7 +68,7 @@ const RootLayout = ({ children }) => {
                 <meta name="twitter:title" content="Travelbeta Blog: Home" />
                 <meta name="twitter:description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
                 {/* <meta name="twitter:image" content="https://example.com/twitter-image.jpg" /> */}
-            </Head>
+            </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                 {children}
                 <Analytics />
