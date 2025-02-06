@@ -7,7 +7,6 @@ import axios from "axios";
 
 
 
-
 export default function Home() {
 
     // SET PAGE TITLE
