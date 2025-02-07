@@ -17,7 +17,7 @@ export const POST = async (request) => {
 
         // Send the data to the Express server
         const response = await axios.post(USER_ENDPOINTS.CREATE_ACCOUNT, requestData);
-        
+
         // ✅ Correctly return a Next.js response
         return NextResponse.json(response.data, { status: response.status });
 
@@ -36,6 +36,7 @@ export const POST = async (request) => {
         );
     };
 };
+
 
 // export async function POST(requestData) {    
     
