@@ -2,7 +2,7 @@
   "name": "travelbeta_blog",
   "version": "0.1.0",
   "private": true,
-  "scripts": {   
+  "scripts": {
     "build": "next build",
     "dev": "next dev",
     "start": "nodemon server/server.js",

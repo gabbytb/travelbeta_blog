@@ -5,7 +5,7 @@ import axios from "axios";
 export async function GET() {    
     try {
         // Make a request to the Express server
-        const response = await axios.get("http://localhost:10000/api/data");
+        const response = await axios.get("http://localhost:10000/admin/posts/manage");
         return Response.json(response.data);
 
     } catch (error) {
