@@ -6,15 +6,16 @@ import axios from "axios";
 
 
 
-
+// ALL AXIOS FOR USERS MODEL
 export async function POST(request) {    
     
     try {
+        
         // Parse the request body from Next.js frontend
         const requestData = await request.json();
 
         // Send the data to the Express server
-        const response = await axios.post("http://localhost:10000/admin/posts/manage/create", requestData, {
+        const response = await axios.post("http://localhost:10000/admin/users/manage/create", requestData, {
             headers: {
                 "Content-Type": "application/json",
             },

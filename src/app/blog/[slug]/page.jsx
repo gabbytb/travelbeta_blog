@@ -7,10 +7,10 @@
 
 
 
-const SingleArticleByUrl = () => {
+const SingleArticle = () => {
     return (
         <div>page</div>
     );
 };
 
-export default SingleArticleByUrl;
+export default SingleArticle;
