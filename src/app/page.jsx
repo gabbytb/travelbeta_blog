@@ -26,7 +26,7 @@ const HomeContent = ({ page }) => {
     
 
     const [result, setResult] = useState({ posts: [], pagination: {} });
-    // console.log("HOMEPAGE - BLOG ARTICLES: ", result);
+    console.log("HOMEPAGE - BLOG ARTICLES: ", result);
 
     const [loading, setLoading] = useState(true);
     // console.log("IS LOADING: ", loading);
@@ -48,22 +48,15 @@ const HomeContent = ({ page }) => {
     ////////////////////////////////////////////
     useEffect(() => {
         const fetchPosts = async () => {   
-
             setLoading(true);
 
-            try {
-                const custom_status = "";
-                const pageLimit = 10;
-                const response = await axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&page=${page}&limit=${pageLimit}`);
-                const { success, data, message} = response.data;
-                setResult(data);
-            } catch (error) {
-                console.error("Failed to fetch posts:", error);
-            } finally {
-                setLoading(false);
-            };
-
-        };        
+            const custom_status = "";
+            const pageLimit = 10;
+            axios.get(`http://localhost:10000/api/v1/admin/posts/manage?status=${custom_status}&page=${page}&limit=${pageLimit}`)   // Fetch from Express API
+            .then((response) => setResult(response.data))
+            .catch((err) => console.error("Error fetching data:", err))
+            .finally(() => setLoading(false));
+        };
         fetchPosts();
     }, [page]);
     ////////////////////////////////////////////  
