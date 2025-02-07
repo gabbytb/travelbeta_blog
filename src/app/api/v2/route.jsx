@@ -17,14 +17,25 @@ export const POST = async (request) => {
 
         // Send the data to the Express server
         const response = await axios.post(USER_ENDPOINTS.CREATE_ACCOUNT, requestData);
-        return response.data;
+        
+        // ✅ Correctly return a Next.js response
+        return NextResponse.json(response.data, { status: response.status });
 
     } catch (error) {
         console.error("Error creating post:", error);
-        throw error;
-    }; 
-};
 
+        // ✅ Handle errors properly
+        return NextResponse.json(
+            { 
+                success: false, 
+                message: error.response?.data || "Internal Server Error" 
+            },
+            {  
+                status: error.response?.status || 500 
+            }
+        );
+    };
+};
 
 // export async function POST(requestData) {    
     
