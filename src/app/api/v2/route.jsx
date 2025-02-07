@@ -9,10 +9,12 @@ import { USER_ENDPOINTS } from "@/app/endpoints";
 
 
 // ALL AXIOS FOR USERS MODEL
-export const POST = async (requestData) => {
+export const POST = async (request) => {
     
     try {
-                        
+        // Parse the request body from Next.js frontend
+        const requestData = await request.json();
+
         // Send the data to the Express server
         const response = await axios.post(USER_ENDPOINTS.CREATE_ACCOUNT, requestData);
         return response.data;
