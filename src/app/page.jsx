@@ -3,6 +3,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import axios from "axios";
+import { BLOG_ENDPOINTS } from "./endpoints";
 
 
 
@@ -26,10 +27,11 @@ const HomeContent = ({ page }) => {
     
 
     const [result, setResult] = useState({ posts: [], pagination: {} });
-    console.log("HOMEPAGE - BLOG ARTICLES: ", result);
+    // console.log("HOMEPAGE - BLOG ARTICLES: ", result);
 
     const [loading, setLoading] = useState(true);
     // console.log("IS LOADING: ", loading);
+
 
 
     ////////////////////////////////////////////
@@ -51,9 +53,12 @@ const HomeContent = ({ page }) => {
             setLoading(true);
 
             const custom_status = "";
-            const pageLimit = 10;
-            axios.get(`http://localhost:10000/api/v1/admin/posts/manage?status=${custom_status}&page=${page}&limit=${pageLimit}`)   // Fetch from Express API
-            .then((response) => setResult(response.data))
+            const pageLimit = 6;
+            axios.get(BLOG_ENDPOINTS.GET_POSTS+`?status=${custom_status}&page=${page}&limit=${pageLimit}`)   // Fetch from Express API
+            .then((response) => {
+                const { success, data, message } = response.data;
+                setResult(data);
+            })
             .catch((err) => console.error("Error fetching data:", err))
             .finally(() => setLoading(false));
         };
