@@ -12,7 +12,6 @@ import { BLOG_ENDPOINTS } from "./endpoints";
 
 
 
-
 const SearchParamsHandler = () => {
 
     const searchParams = useSearchParams();
@@ -98,9 +97,6 @@ const HomeContent = ({ page }) => {
 };
 
 
-
-
-
 const Home = () => {
 
     return (
@@ -108,6 +104,7 @@ const Home = () => {
             <SearchParamsHandler />
         </Suspense>
     );
+
 };
 
 export default Home;

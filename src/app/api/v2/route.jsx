@@ -7,8 +7,7 @@ import { USER_ENDPOINTS } from "@/app/endpoints";
 
 
 
-
-// ALL AXIOS FOR USERS MODEL
+// CREATE NEW ACCOUNT
 export const POST = async (request) => {
     
     try {
@@ -36,6 +35,7 @@ export const POST = async (request) => {
         );
     };
 };
+
 
 // export async function POST(requestData) {    
     

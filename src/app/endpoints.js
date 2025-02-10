@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3000;
 
 
 
-
 export const BLOG_ENDPOINTS = {
     CREATE_POST: `${IP}:${PORT}/api/v1/admin/posts/manage/create`,
     GET_POSTS: `${IP}:${PORT}/api/v1/admin/posts/manage`,
@@ -15,8 +14,12 @@ export const BLOG_ENDPOINTS = {
 };
 
 
+
 export const USER_ENDPOINTS = {
     CREATE_ACCOUNT: `${IP}:${PORT}/api/v2/admin/users/manage/create`,
     // GET_POSTS: `${IP}:${PORT}/api/v2/admin/manage/posts`,
     // DELETE_POST: (slug) => `${IP}:${PORT}/api/v1/blog/manage/posts/${slug}`,
 };
+
+
+
