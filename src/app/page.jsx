@@ -26,10 +26,10 @@ const HomeContent = ({ page }) => {
     
 
     const [result, setResult] = useState({ posts: [], pagination: {} });
-    // console.log("HOMEPAGE - BLOG ARTICLES: ", result);
+    console.log("HOMEPAGE - BLOG ARTICLES: ", result);
 
     const [loading, setLoading] = useState(true);
-    // console.log("IS LOADING: ", loading);
+    console.log("IS LOADING: ", loading);
 
 
 
@@ -53,7 +53,7 @@ const HomeContent = ({ page }) => {
 
             const custom_status = "";
             const pageLimit = 6;
-            axios.get(BLOG_ENDPOINTS.GET_POSTS+`?status=${custom_status}&page=${page}&limit=${pageLimit}`)   // Fetch from Express API
+            axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&page=${page}&limit=${pageLimit}`)   // Fetch from Express API
             .then((response) => {
                 const { success, data, message } = response.data;
                 setResult(data);
