@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
 
@@ -74,29 +75,73 @@ const HomeContent = ({ page }) => {
 
     
     return (
-        <div className="container mx-auto px-5 mb-10">
-          
-            {/* <Header /> */}
-            
-            
-            
+        <>
+            <header className="shadow">
+                <nav className="flex justify-center w-full h-20">
+                    
+                    <div className="flex w-32">
+                        {/* <Image src={``} alt="" className="w-full" /> */}
+                    </div>
+
+
+                    <ul className="flex justify-between items-center w-96">
+                        <li>
+                            <Link href="" alt="">
+                                <span> <p>Flights</p></span>
+                            </Link>
+                        </li>
+                        
+                        
+                        <li>
+                            <Link href="" alt="">
+                                <span> <p>Hotels</p></span>
+                            </Link>
+                        </li>
+                        
+                        
+                        <li>
+                            <Link href="" alt="">
+                                <span> <p>Visa</p></span>
+                            </Link>
+                        </li>
+
+                        
+                        <li>
+                            <Link href="" alt="">
+                                <span> <p>Packages</p></span>
+                            </Link>
+                        </li>
+                    </ul>
+
+                </nav>
+            </header>
+
+
+
             <main>
+           
                 {
                     loading ? (
-                                  <p className="text-center">Loading...</p>
-                              ) : (
-                                      <>
-                                          {/* <BlogPostsPreview posts={result.posts} />
-                                          <BlogPostsPagination pagination={result.pagination} /> */}
-                                      </>
-                                  )
+                                <p className="text-center">Loading...</p>
+                            ) : (
+                                    <>
+                                        <div className="container mx-auto px-0 py-0">
+                                            
+                                            {/* <BlogPostsPreview posts={result.posts} />
+                                            <BlogPostsPagination pagination={result.pagination} /> */}
+
+                                        </div>
+                                    </>
+                                )
                 }
+
             </main>
 
 
+
             {/* <Footer /> */}
-        
-        </div>
+                  
+        </>
     );
 };
 
