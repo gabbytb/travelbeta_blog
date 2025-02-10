@@ -3,7 +3,6 @@ import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import axios from "axios";
-import { BLOG_ENDPOINTS } from "./endpoints";
 
 
 
@@ -29,7 +28,7 @@ const HomeContent = ({ page }) => {
     console.log("HOMEPAGE - BLOG ARTICLES: ", result);
 
     const [loading, setLoading] = useState(true);
-    console.log("IS LOADING: ", loading);
+    // console.log("IS LOADING: ", loading);
 
 
 
@@ -48,7 +47,9 @@ const HomeContent = ({ page }) => {
     // GET ALL POST ARTICLES
     ////////////////////////////////////////////
     useEffect(() => {
+
         const fetchPosts = async () => {   
+
             setLoading(true);
 
             const custom_status = "";
@@ -60,8 +61,10 @@ const HomeContent = ({ page }) => {
             })
             .catch((err) => console.error("Error fetching data:", err))
             .finally(() => setLoading(false));
+
         };
         fetchPosts();
+
     }, [page]);
     ////////////////////////////////////////////  
     ////////////////////////////////////////////
@@ -69,6 +72,7 @@ const HomeContent = ({ page }) => {
 
 
 
+    
     return (
         <div className="container mx-auto px-5 mb-10">
           
@@ -95,6 +99,7 @@ const HomeContent = ({ page }) => {
         </div>
     );
 };
+
 
 
 const Home = () => {
