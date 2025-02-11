@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:10000"; // Default to local
 
 
 
@@ -55,7 +55,7 @@ const HomeContent = ({ page }) => {
 
             const custom_status = "";
             const pageLimit = 6;
-            axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${pageLimit}&page=${page}`)   // Fetch from Express API
+            axios.get(`${API_BASE_URL}/api/v1/admin/posts/manage?status=${custom_status}&limit=${pageLimit}&page=${page}`)   // Fetch from Express API
             .then((response) => {
                 const { success, data, message } = response.data;
                 setResult(data);
