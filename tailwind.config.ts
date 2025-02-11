@@ -105,6 +105,7 @@ export default {
       },
       backgroundColor: {
         skin: {
+          officeblue:  'var(--root-article-read-more)',
           skyblue: 'var(--background-sky-blue)',
           transparentblue: 'var(--background-transparent-blue)',
           lightblue: 'var(--bg-light-blue)',
@@ -522,7 +523,8 @@ export default {
         '720': '72rem',
         '780': '78rem',   
         '781': '68rem',
-        '5/8': '25.666667%',        
+        '5/8': '25.666667%', 
+        '2/9': '31.55555%',       
         '9/8': '94%',   // Admin Dashboard search-form nav Wrapper
         
       },

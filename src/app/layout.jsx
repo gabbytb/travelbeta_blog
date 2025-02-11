@@ -2,6 +2,8 @@ import React from "react";
 // import type { Metadata } from "next";
 import head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { googleClient } from '@/constants';
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
 
@@ -77,7 +79,9 @@ const RootLayout = ({ children }) => {
                 {/* <meta name="twitter:image" content="https://example.com/twitter-image.jpg" /> */}
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                {children}
+                <GoogleOAuthProvider clientId={`${googleClient.map(item => item.key)}`}> 
+                    {children}
+                </GoogleOAuthProvider>
                 <Analytics />
             </body>
         </html>

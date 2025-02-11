@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-
+import logo from "../assets/logo.png";
 
 
 
@@ -75,43 +75,46 @@ const HomeContent = ({ page }) => {
     var imageHeight = 0;
     return (
         <>
-            <header className="shadow">
-                <nav className="flex justify-center w-full h-20">
-                    
-                    <div className="flex w-32">
-                        {/* <Image src={``} alt="" className="w-full" /> */}
+            <header className="shadow-md">
+                <nav className="flex w-full h-20 mx-auto">                    
+                    <div className="w-full flex justify-between items-center mx-20">
+
+                        <div className="flex w-40 h-12">
+                            <Image src={logo} alt="" className="w-full" />
+                        </div>
+
+
+
+                        <ul className="flex justify-between items-center w-96">
+                            <li>
+                                <Link href="" alt="">
+                                    <span> <p>Flights</p></span>
+                                </Link>
+                            </li>
+                            
+                            
+                            <li>
+                                <Link href="" alt="">
+                                    <span> <p>Hotels</p></span>
+                                </Link>
+                            </li>
+                            
+                            
+                            <li>
+                                <Link href="" alt="">
+                                    <span> <p>Visa</p></span>
+                                </Link>
+                            </li>
+
+                            
+                            <li>
+                                <Link href="" alt="">
+                                    <span> <p>Packages</p></span>
+                                </Link>
+                            </li>
+                        </ul>
+
                     </div>
-
-
-                    <ul className="flex justify-between items-center w-96">
-                        <li>
-                            <Link href="" alt="">
-                                <span> <p>Flights</p></span>
-                            </Link>
-                        </li>
-                        
-                        
-                        <li>
-                            <Link href="" alt="">
-                                <span> <p>Hotels</p></span>
-                            </Link>
-                        </li>
-                        
-                        
-                        <li>
-                            <Link href="" alt="">
-                                <span> <p>Visa</p></span>
-                            </Link>
-                        </li>
-
-                        
-                        <li>
-                            <Link href="" alt="">
-                                <span> <p>Packages</p></span>
-                            </Link>
-                        </li>
-                    </ul>
-
                 </nav>
             </header>
 
@@ -122,7 +125,9 @@ const HomeContent = ({ page }) => {
                 {
                     loading ? 
                             (
-                                <p className="text-center">Loading...</p>
+                                <div className="h-screen w-full flex justify-center items-center">
+                                    <p className="text-center">Loading...</p>
+                                </div>
                             ) 
                             : 
                             (
@@ -133,7 +138,7 @@ const HomeContent = ({ page }) => {
                                                 {
                                                     result?.posts?.map((post, index) => {
                                                         return (
-                                                            <div key={index} className="flex flex-col w-1/3 shadow-md rounded-lg">
+                                                            <div key={index} className="flex flex-col w-2/9 shadow-md rounded-lg">
                                                                 
                                                                 <figure className="w-full h-72">
                                                                     <Link href={`/${post.uri}`}>
@@ -155,9 +160,9 @@ const HomeContent = ({ page }) => {
                                                                     <div className="flex flex-col gap-4 mb-3">
                                                                         <p className="text-base/normal">{post.excerpt}</p>                                                                   
                                                                         <Link 
-                                                                            className="bg-blue-600 w-32 flex justify-center text-base text-white font-black py-3 rounded-lg"
-                                                                            href={`/${post.uri}`}>
-                                                                            Read More
+                                                                            className="w-32 flex justify-center text-sm text-white font-black py-3 rounded-lg"
+                                                                            href={`/category/${post.category}`}>
+                                                                            # ${post.category}
                                                                         </Link>
                                                                     </div>
                                                                 </div>
