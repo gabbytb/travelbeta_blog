@@ -6,6 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "start": "nodemon server/server.js",
+    "style": "npx tailwindcss -i ./src/app/globals.css -o ./public/assets/css/style.css --watch",
     "startup": "next start",
     "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -72,7 +72,7 @@ const HomeContent = ({ page }) => {
 
 
 
-    
+    var imageHeight = 0;
     return (
         <>
             <header className="shadow">
@@ -127,12 +127,50 @@ const HomeContent = ({ page }) => {
                             : 
                             (
                                 <>
-                                    <div className="container mx-auto px-0 py-0">
-                                        
-                                        {/* <BlogPostsPreview posts={result.posts} />
-                                        <BlogPostsPagination pagination={result.pagination} /> */}
+                                    <section>
+                                        <div className="container mx-auto flex mt-20">
+                                            <div className="flex justify-start flex-wrap inner_container mx-auto gap-12">
+                                                {
+                                                    result?.posts?.map((post, index) => {
+                                                        return (
+                                                            <div key={index} className="flex flex-col w-94.7 ml-2 shadow-md rounded-lg">
+                                                                
+                                                                <figure className="w-full h-72">
+                                                                    <Link href={`/${post.uri}`}>
+                                                                        <Image 
+                                                                            src="https://res.cloudinary.com/travelbetablog/image/upload/v1739138163/shutterstock_2377591127_sqqdq7.jpg"
+                                                                            alt={post.excerpt}
+                                                                            width={350} 
+                                                                            height={300}
+                                                                            className="w-full h-full"
+                                                                        />
+                                                                    </Link>
+                                                                </figure>
 
-                                    </div>
+                                                                <div className="p-5 flex flex-col gap-3">
+                                                                    <Link href={`/${post.uri}`}>
+                                                                        <h2 className="text-10xl/very-loose font-black text-slate-700">{post.title}</h2>
+                                                                    </Link>
+
+                                                                    <div className="flex flex-col gap-4 mb-3">
+                                                                        <p className="text-base/normal">{post.excerpt}</p>                                                                   
+                                                                        <Link 
+                                                                            className="bg-blue-600 w-32 flex justify-center text-base text-white font-black py-3 rounded-lg"
+                                                                            href={`/${post.uri}`}>
+                                                                            Read More
+                                                                        </Link>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        );
+                                                    })
+                                                }
+                                            </div>
+                                            {/* <BlogPostsPreview posts={result.posts} />
+                                            <BlogPostsPagination pagination={result.pagination} /> */}
+
+                                        </div>
+                                    </section>
                                 </>
                             )
                 }

@@ -150,7 +150,7 @@ body {
       --admin-total-revenue-card-3: rgba(8, 78, 187, 1);
     }
   
-    *, html {
+    html {
       font-size: var(--root-font-size);
       font-family: var(--root-font-family);
       line-height: var(--root-line-height);
@@ -170,6 +170,7 @@ body {
     }
 
     .container {
+      width: 90% !important;
       max-width: var(--root-max-width) !important;
     }
 
@@ -231,6 +232,14 @@ body {
 
 
 @layer components {
+
+  .inner_container {
+    @apply
+      w-full
+    ;
+  }
+
+
 
 
 

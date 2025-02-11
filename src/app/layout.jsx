@@ -61,6 +61,7 @@ const RootLayout = ({ children }) => {
                 <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
                 
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="stylesheet" href="./assets/style.css" />
 
                 {/* Open Graph (OG) Meta Tags for Facebook, LinkedIn, etc. */}
                 <meta property="og:title" content="Travelbeta Blog: Home" />
