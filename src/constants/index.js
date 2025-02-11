@@ -1,3 +1,11 @@
+import { FacebookIcon, InstagramIcon, TelegramIcon, TwitterIcon, WhatsappIcon, YoutubeIcon } from "@/assets/icons"
+import { blogbg, donationbg2, donationbg3, mayokun, wande, wura } from "@/assets/images"
+
+
+
+
+
+
 // [GOOGLE ANALYTICS]
 // const reactGA = "G-0LBZW5F0BD";
 
