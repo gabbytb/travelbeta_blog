@@ -142,7 +142,7 @@ const HomeContent = ({ page }) => {
 
 
 
-            {/* <Footer /> */}
+            {/* <Footer><Footer/> */}
                   
         </>
     );
