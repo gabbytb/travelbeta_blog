@@ -55,7 +55,7 @@ const HomeContent = ({ page }) => {
 
             const custom_status = "";
             const pageLimit = 6;
-            axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&page=${page}&limit=${pageLimit}`)   // Fetch from Express API
+            axios.get(`https://travelbeta-blog.vercel.app/api/v1/admin/posts/manage?status=${custom_status}&limit=${pageLimit}&page=${page}`)   // Fetch from Express API
             .then((response) => {
                 const { success, data, message } = response.data;
                 setResult(data);
@@ -121,18 +121,21 @@ const HomeContent = ({ page }) => {
             <main>
            
                 {
-                    loading ? (
+                    loading ? 
+                            (
                                 <p className="text-center">Loading...</p>
-                            ) : (
-                                    <>
-                                        <div className="container mx-auto px-0 py-0">
-                                            
-                                            {/* <BlogPostsPreview posts={result.posts} />
-                                            <BlogPostsPagination pagination={result.pagination} /> */}
+                            ) 
+                            : 
+                            (
+                                <>
+                                    <div className="container mx-auto px-0 py-0">
+                                        
+                                        {/* <BlogPostsPreview posts={result.posts} />
+                                        <BlogPostsPagination pagination={result.pagination} /> */}
 
-                                        </div>
-                                    </>
-                                )
+                                    </div>
+                                </>
+                            )
                 }
 
             </main>
