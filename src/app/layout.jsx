@@ -7,8 +7,6 @@ import { Analytics } from "@vercel/analytics/react"
 
 
 
-
-
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
@@ -22,15 +20,12 @@ const geistMono = Geist_Mono({
 // export const metadata: Metadata = {
 //     title: "Travelbeta Blog: Home",
 //     description: "Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets.",
+//     openGraph: {
+//         title: "Travelbeta Blog: Home",
+//         description: "Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets.",
+//     },
 // };
 
-// export const metadata = {
-//   title: "Travelbeta Blog: Home",
-//   openGraph: {
-//       title: "Travelbeta Blog: Home",
-//       description: "Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets.",
-//   },
-// };
 
 // export default function RootLayout({
 //     children,
@@ -47,12 +42,24 @@ const geistMono = Geist_Mono({
 //     );
 // };
 
+export const metadata = {
+    title: "Travelbeta Blog: Home",
+    description: "Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets.",
+    openGraph: {
+        title: "Travelbeta Blog: Home",
+        description: "Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets.",
+    },
+};
+
+
 const RootLayout = ({ children }) => {
+
     return (
         <html lang="en">
             <head>
                 <title>Travelbeta Blog: Home</title>
                 <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
+                
                 <link rel="icon" href="/favicon.ico" />
 
                 {/* Open Graph (OG) Meta Tags for Facebook, LinkedIn, etc. */}
