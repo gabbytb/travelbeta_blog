@@ -129,11 +129,11 @@ const HomeContent = ({ page }) => {
                                 <>
                                     <section>
                                         <div className="container mx-auto flex mt-20">
-                                            <div className="flex justify-start flex-wrap inner_container mx-auto gap-12">
+                                            <div className="flex justify-start flex-wrap w-full mx-auto gap-8">
                                                 {
                                                     result?.posts?.map((post, index) => {
                                                         return (
-                                                            <div key={index} className="flex flex-col w-94.7 ml-2 shadow-md rounded-lg">
+                                                            <div key={index} className="flex flex-col w-1/3 shadow-md rounded-lg">
                                                                 
                                                                 <figure className="w-full h-72">
                                                                     <Link href={`/${post.uri}`}>
