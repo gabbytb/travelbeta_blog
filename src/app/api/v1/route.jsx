@@ -4,6 +4,9 @@ import axios from "axios";
 
 
 
+
+
+
 // ALL AXIOS FOR ARTICLES MODEL
 export async function GET() {    
 
@@ -18,7 +21,6 @@ export async function GET() {
     };   
 };
 
-
 export async function POST(request) {
 
     try {
@@ -31,7 +33,6 @@ export async function POST(request) {
         return Response.json({ message: "Failed to create post", error }, { status: 500 });
     };
 };
-
 
 
 // CREATE NEW ACCOUNT
