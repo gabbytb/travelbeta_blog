@@ -55,7 +55,7 @@ const HomeContent = ({ page }) => {
 
             const custom_status = "";
             const pageLimit = 6;
-            axios.get(`https://travelbeta-blog.vercel.app/api/v1/admin/posts/manage?status=${custom_status}&limit=${pageLimit}&page=${page}`)   // Fetch from Express API
+            axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${pageLimit}&page=${page}`)   // Fetch from Express API
             .then((response) => {
                 const { success, data, message } = response.data;
                 setResult(data);
