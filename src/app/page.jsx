@@ -103,7 +103,7 @@ const Home = () => {
                 <nav className="flex w-full h-15 mx-auto">                    
                     <div className="w-full flex justify-between items-center mx-20">
 
-                        <div className="flex w-40 h-12">
+                        <div className="flex w-48 h-14">
                             <Image src={logo} alt="" className="w-full" />
                         </div>
 
@@ -157,7 +157,7 @@ const Home = () => {
                             (
                                 <>
                                     <section>
-                                        <div className="container mx-auto flex mt-20">
+                                        <div className="container mx-auto flex mt-20 mb-20">
                                             <div className="flex flex-col w-full">
                                                 {/* ARTICLES LISTING */}
                                                 {
@@ -185,11 +185,11 @@ const Home = () => {
                                                                                         <h2 className="text-10xl/very-loose font-black text-slate-700">{post.title}</h2>
                                                                                     </Link>
 
-                                                                                    <div className="flex flex-col gap-4 mb-3">
+                                                                                    <div className="flex flex-col gap-6 mb-3">
                                                                                         <p className="text-lg/relaxed font-medium">{post.excerpt}</p>                                                                   
-                                                                                        <Link className="min-w-12 flex justify-center text-sm text-black font-black py-3 shadow-lg rounded-lg"
+                                                                                        <Link className="w-52 flex justify-start text-11xl text-black font-medium py-3 px-4 shadow-lg rounded-lg gap-1"
                                                                                             href={`/category/${post.categories}`}>
-                                                                                            # {post.categories}
+                                                                                            <span className="text-red-500 indent-1">#</span>{post.categories}
                                                                                         </Link>
                                                                                     </div>
                                                                                 </div>
@@ -214,12 +214,12 @@ const Home = () => {
                                                 {
                                                     result?.posts?.length !== 0 ?
                                                         <>
-                                                            <div className="flex justify-between items-center py-2 mt-16 mr-6">
+                                                            <div className="flex justify-between items-center py-2 mt-20 mr-6">
                                                                 <nav className="relative z-0 inline-flex gap-3">
                                                                     {/* Previous page button */}
                                                                     <button
                                                                         onClick={() => handlePageChange(currentPage - 1)}
-                                                                        className={`relative inline-flex items-center px-2 py-2 rounded-full border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-20 justify-center h-20 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed hidden' : ''}`}
+                                                                        className={`relative inline-flex items-center px-2 py-2 rounded-full border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-16 justify-center h-16 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed hidden' : ''}`}
                                                                         disabled={currentPage === 1}
                                                                     >prev
                                                                     </button>
@@ -230,7 +230,7 @@ const Home = () => {
                                                                         <button
                                                                         key={index}
                                                                         onClick={() => handlePageChange(index + 1)}
-                                                                        className={`-ml-px relative inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-xl font-bold outline-none focus:outline-none hover:bg-gray-50 w-20 justify-center h-20 ${currentPage === index + 1 ? 'bg-gray-100 text-blue-800' : ''}`}>
+                                                                        className={`-ml-px relative inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-xl font-bold outline-none focus:outline-none hover:bg-gray-50 w-16 justify-center h-16 ${currentPage === index + 1 ? 'bg-gray-100 text-blue-800' : ''}`}>
                                                                         {index + 1}
                                                                         </button>
                                                                     ))}
@@ -239,7 +239,7 @@ const Home = () => {
                                                                     {/* Next page button */}
                                                                     <button
                                                                         onClick={() => handlePageChange(currentPage + 1)}
-                                                                        className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-full rounded-r-md border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-20 justify-center h-20 next-pg ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                                        className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-full border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-16 justify-center h-16 next-pg ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
                                                                         // disabled={currentPage === totalPages}
                                                                     >next
                                                                     </button>

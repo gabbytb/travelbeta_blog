@@ -1316,6 +1316,14 @@ textarea#comments {
   margin-top: 1.5rem;
 }
 
+.mt-24 {
+  margin-top: 6rem;
+}
+
+.-mt-2 {
+  margin-top: -0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -1384,6 +1392,14 @@ textarea#comments {
   height: 100vh;
 }
 
+.h-14 {
+  height: 3.5rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
 .\!w-px {
   width: 1px !important;
 }
@@ -1396,10 +1412,6 @@ textarea#comments {
   width: 5rem;
 }
 
-.w-32 {
-  width: 8rem;
-}
-
 .w-36 {
   width: 9rem;
 }
@@ -1410,6 +1422,10 @@ textarea#comments {
 
 .w-48 {
   width: 12rem;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .w-56 {
@@ -1432,16 +1448,8 @@ textarea#comments {
   width: 100vw;
 }
 
-.w-3 {
-  width: 0.75rem;
-}
-
-.min-w-32 {
-  min-width: 8rem;
-}
-
-.min-w-12 {
-  min-width: 3rem;
+.w-16 {
+  width: 4rem;
 }
 
 .max-w-\[400px\] {
@@ -1490,12 +1498,20 @@ textarea#comments {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-center {
   justify-content: center;
 }
 
 .justify-between {
   justify-content: space-between;
+}
+
+.gap-1 {
+  gap: 0.25rem;
 }
 
 .gap-10 {
@@ -1520,6 +1536,10 @@ textarea#comments {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .\!overflow-hidden {
@@ -1716,6 +1736,10 @@ textarea#comments {
   text-align: center;
 }
 
+.indent-1 {
+  text-indent: 0.25rem;
+}
+
 .align-middle {
   vertical-align: middle;
 }
@@ -1748,10 +1772,6 @@ textarea#comments {
 .text-lg\/relaxed {
   font-size: 1.125rem;
   line-height: 1.625;
-}
-
-.text-sm {
-  font-size: .875rem;
 }
 
 .text-xl {
@@ -1813,6 +1833,11 @@ textarea#comments {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
 }
 
 .text-slate-700 {
