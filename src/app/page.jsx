@@ -1,6 +1,5 @@
 "use client";
-import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
@@ -11,43 +10,37 @@ import logo from "../assets/logo.png";
 
 
 
-const SearchParamsHandler = () => {
-
-    const searchParams = useSearchParams();
-    const currentPage = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1;
-
-    return <HomeContent page={currentPage} />;
-};
 
 
+const Home = () => {
 
-const HomeContent = ({ currentPage }) => {
+
+    console.clear();
     
 
+    
     const [loading, setLoading] = useState(true);
     // console.log("IS LOADING: ", loading);
 
 
 
-
-
-    const [result, setResult] = useState({ posts: [], pagination: {} });
-    console.log("HOMEPAGE - BLOG ARTICLES: ", result);              
-    
-    const totalBlogPosts = result?.pagination?.postsRecord;
-    console.log("TOTAL BLOG POSTS: ", totalBlogPosts);
-
-    const totalPages = result?.pagination?.lastPage;
-    console.log("TOTAL BLOG PAGES: ", totalPages);
-    
-    currentPage = result?.pagination?.currentPage;
-    console.log("CURRENT PAGE: ", currentPage);
-    
-    const [pageNext, setPageNext] = useState(currentPage);
-
-    const pageLimit = result?.pagination?.pageLimit; // Number of items per page   
-    console.log("CURRENT PAGE: ", pageLimit);
-
+    const [result, setResult] = useState({ posts: [], pagination: {} });   
+    //////////////////////////////////////////////////////////////////////////////////
+    // PARSE TO CONSOLE
+    //////////////////////////////////////////////////////////////////////////////////
+    const posts = result?.posts;
+    const currentPage = result?.pagination?.currentPage; // Current Page
+    const totalPages = result?.pagination?.lastPage; // Total Pages / Last Page
+    const pageLimit = result?.pagination?.pageLimit; // Number of Articles per page
+    const totalBlogPosts = result?.pagination?.postsRecord; // Total Articles
+    console.log("BLOG ARTICLES: ", posts, "\n",
+                "BLOG PAGINATION\n",
+                "Current Page: ", currentPage, "\n",
+                "Last Page: ", totalPages, "\n",
+                "Page Limit: ", pageLimit, "\n",
+                "Total Articles: ", totalBlogPosts);
+    //////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -62,6 +55,7 @@ const HomeContent = ({ currentPage }) => {
 
 
 
+    const [changePage, setChangePage] = useState(currentPage);
     ////////////////////////////////////////////
     // GET ALL POST ARTICLES
     ////////////////////////////////////////////
@@ -72,9 +66,9 @@ const HomeContent = ({ currentPage }) => {
             setLoading(true);
 
             const custom_status = "";
-            const pageLimit = 6;
-            const page = 1 ? 1 : currentPage;
-            axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${pageLimit}&page=${page}`)   // Fetch from Express API
+            const page = changePage ? changePage : 1;
+            const limit = pageLimit ? pageLimit : 3;
+            axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${limit}&page=${page}`)
             .then((response) => {
                 const { success, data, message } = response.data;
                 setResult(data);
@@ -85,7 +79,7 @@ const HomeContent = ({ currentPage }) => {
         };
         fetchPosts();
 
-    }, [currentPage]);
+    }, [changePage]);
     ////////////////////////////////////////////  
     ////////////////////////////////////////////
 
@@ -94,19 +88,19 @@ const HomeContent = ({ currentPage }) => {
     // ******************************** //
     // ***    HANDLE PAGE CHANGE    *** //
     // ******************************** //
-    const handlePageChange = (currentPage) => {
-        setPageNext(currentPage);
+    const handlePageChange = (page) => {
+        setChangePage(page);
     };
     // ****************************************************************************
     // ****************************************************************************  
 
 
 
-    var imageHeight = 0;
+    
     return (
         <>
-            <header className="shadow-md">
-                <nav className="flex w-full h-20 mx-auto">                    
+            <header className="shadow-md h-24 flex items-center">
+                <nav className="flex w-full h-15 mx-auto">                    
                     <div className="w-full flex justify-between items-center mx-20">
 
                         <div className="flex w-40 h-12">
@@ -282,16 +276,5 @@ const HomeContent = ({ currentPage }) => {
     );
 };
 
-
-
-const Home = () => {
-
-    return (
-        <Suspense fallback={<p className="text-center">Loading page...</p>}>
-            <SearchParamsHandler />
-        </Suspense>
-    );
-
-};
 
 export default Home;
