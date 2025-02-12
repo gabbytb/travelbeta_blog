@@ -1232,6 +1232,11 @@ textarea#comments {
   margin-bottom: 1.25rem;
 }
 
+.my-24 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
+}
+
 .-ml-px {
   margin-left: -1px;
 }
@@ -1542,12 +1547,26 @@ textarea#comments {
   gap: 1.5rem;
 }
 
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .\!overflow-hidden {
   overflow: hidden !important;
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
 .\!whitespace-nowrap {
   white-space: nowrap !important;
+}
+
+.text-pretty {
+  text-wrap: pretty;
 }
 
 .rounded-3xl {
@@ -1732,6 +1751,14 @@ textarea#comments {
   padding-top: 1rem;
 }
 
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
+.pb-18\.5 {
+  padding-bottom: 4.86rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1746,6 +1773,10 @@ textarea#comments {
 
 .align-\[-0\.125em\] {
   vertical-align: -0.125em;
+}
+
+.font-firma {
+  font-family: firma;
 }
 
 .text-10xl\/very-loose {
@@ -1778,6 +1809,10 @@ textarea#comments {
   font-size: 1.25rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -1794,6 +1829,10 @@ textarea#comments {
   font-weight: 600;
 }
 
+.font-extrabold {
+  font-weight: 800;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -1806,8 +1845,32 @@ textarea#comments {
   line-height: 1.5rem;
 }
 
+.leading-to-tight {
+  line-height: 1.1;
+}
+
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-tighter {
+  line-height: 1.35;
+}
+
 .tracking-extratight {
   letter-spacing: 0.06em;
+}
+
+.tracking-supertight {
+  letter-spacing: 0.015em;
+}
+
+.tracking-tightest {
+  letter-spacing: 0.3rem;
+}
+
+.tracking-tightener {
+  letter-spacing: 0.045em;
 }
 
 .text-black {

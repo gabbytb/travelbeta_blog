@@ -159,6 +159,12 @@ const Home = () => {
                                     <section>
                                         <div className="container mx-auto flex mt-20 mb-20">
                                             <div className="flex flex-col w-full">
+
+                                                <div className="pb-18.5 flex justify-center">
+                                                    <h1 className="text-3xl font-extrabold tracking-tight">BLOG POSTS</h1>
+                                                </div>
+
+
                                                 {/* ARTICLES LISTING */}
                                                 {
                                                     result?.posts?.length !== 0 ?
