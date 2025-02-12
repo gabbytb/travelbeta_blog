@@ -187,9 +187,9 @@ const Home = () => {
 
                                                                                     <div className="flex flex-col gap-4 mb-3">
                                                                                         <p className="text-lg/relaxed font-medium">{post.excerpt}</p>                                                                   
-                                                                                        <Link className="w-32 flex justify-center text-sm text-black font-black py-3 shadow-lg rounded-lg"
-                                                                                            href={`/category/${post.category}`}>
-                                                                                            # {post.category}
+                                                                                        <Link className="min-w-12 flex justify-center text-sm text-black font-black py-3 shadow-lg rounded-lg"
+                                                                                            href={`/category/${post.categories}`}>
+                                                                                            # {post.categories}
                                                                                         </Link>
                                                                                     </div>
                                                                                 </div>

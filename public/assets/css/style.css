@@ -1432,6 +1432,18 @@ textarea#comments {
   width: 100vw;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
+.min-w-32 {
+  min-width: 8rem;
+}
+
+.min-w-12 {
+  min-width: 3rem;
+}
+
 .max-w-\[400px\] {
   max-width: 400px;
 }
