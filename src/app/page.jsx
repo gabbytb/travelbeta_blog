@@ -158,7 +158,7 @@ const Home = () => {
                                 <>
                                     <section>
                                         <div className="container mx-auto flex mt-20">
-                                            <div className="flex flex-col">
+                                            <div className="flex flex-col w-full">
                                                 {/* ARTICLES LISTING */}
                                                 {
                                                     result?.posts?.length !== 0 ?
