@@ -14,14 +14,14 @@ import logo from "../assets/logo.png";
 const SearchParamsHandler = () => {
 
     const searchParams = useSearchParams();
-    const page = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1;
+    const currentPage = searchParams.get("page") ? parseInt(searchParams.get("page")) : 1;
 
-    return <HomeContent page={page} />;
+    return <HomeContent page={currentPage} />;
 };
 
 
 
-const HomeContent = ({ page }) => {
+const HomeContent = ({ currentPage }) => {
     
 
     const [loading, setLoading] = useState(true);
@@ -32,18 +32,21 @@ const HomeContent = ({ page }) => {
 
 
     const [result, setResult] = useState({ posts: [], pagination: {} });
-    console.log("HOMEPAGE - BLOG ARTICLES: ", result);
-            
-    // eslint-disable-next-line
-    const [totalBlogPosts, setTotalBlogPosts] = useState(null);
-    // console.log("TOTAL BLOG POSTS: ", totalBlogPosts);
+    console.log("HOMEPAGE - BLOG ARTICLES: ", result);              
+    
+    const totalBlogPosts = result?.pagination?.postsRecord;
+    console.log("TOTAL BLOG POSTS: ", totalBlogPosts);
 
-    const [totalPages, setTotalPages] = useState(0);
-    // console.log("TOTAL BLOG PAGES: ", totalPages);
+    const totalPages = result?.pagination?.lastPage;
+    console.log("TOTAL BLOG PAGES: ", totalPages);
+    
+    currentPage = result?.pagination?.currentPage;
+    console.log("CURRENT PAGE: ", currentPage);
+    
+    const [pageNext, setPageNext] = useState(currentPage);
 
-    const [currentPage, setCurrentPage] = useState(1);
-    // const [pageLimit, setPageLimit] = useState(10); // Number of items per page   
-
+    const pageLimit = result?.pagination?.pageLimit; // Number of items per page   
+    console.log("CURRENT PAGE: ", pageLimit);
 
 
 
@@ -70,6 +73,7 @@ const HomeContent = ({ page }) => {
 
             const custom_status = "";
             const pageLimit = 6;
+            const page = 1 ? 1 : currentPage;
             axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${pageLimit}&page=${page}`)   // Fetch from Express API
             .then((response) => {
                 const { success, data, message } = response.data;
@@ -81,7 +85,7 @@ const HomeContent = ({ page }) => {
         };
         fetchPosts();
 
-    }, [page]);
+    }, [currentPage]);
     ////////////////////////////////////////////  
     ////////////////////////////////////////////
 
@@ -90,8 +94,8 @@ const HomeContent = ({ page }) => {
     // ******************************** //
     // ***    HANDLE PAGE CHANGE    *** //
     // ******************************** //
-    const handlePageChange = (page) => {
-        setCurrentPage(page);
+    const handlePageChange = (currentPage) => {
+        setPageNext(currentPage);
     };
     // ****************************************************************************
     // ****************************************************************************  
@@ -161,15 +165,15 @@ const HomeContent = ({ page }) => {
                                     <section>
                                         <div className="container mx-auto flex mt-20">
                                             <div className="flex flex-col">
-                                                {/* POSTS LISTING */}
+                                                {/* ARTICLES LISTING */}
                                                 {
                                                     result?.posts?.length !== 0 ?
                                                         <>
-                                                            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-12 w-full shadow-md rounded-lg">
+                                                            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-12 w-full">
                                                                 {
                                                                     result?.posts?.map((post, index) => {
                                                                         return (
-                                                                            <div key={index} className="">
+                                                                            <div key={index} className="shadow-md rounded-lg">
                                                                                 <figure className="w-full h-72">
                                                                                     <Link href={`/${post.uri}`}>
                                                                                         <Image 
@@ -209,50 +213,54 @@ const HomeContent = ({ page }) => {
                                                             </div>
                                                         </>                                           
                                                 }
-                                                {/* POSTS LISTING */}
+                                                {/* ARTICLES LISTING */}
                                             
 
 
-                                                {/* PAGINATION */}
+                                                {/* ARTICLES PAGINATION */}
                                                 {
-                                                    result?.posts?.length !== 0 ? 
-                                                        <div className="flex justify-between items-center py-2 mt-16 mr-6">
-                                                            <nav className="relative z-0 inline-flex gap-3">
-                                                                {/* Previous page button */}
-                                                                <button
-                                                                    onClick={() => handlePageChange(currentPage - 1)}
-                                                                    className={`relative inline-flex items-center px-2 py-2 rounded-full border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-20 justify-center h-20 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed hidden' : ''}`}
-                                                                    disabled={currentPage === 1}
-                                                                >prev
-                                                                </button>
-
-
-                                                                {/* Page numbers */}
-                                                                {Array.from({ length: totalPages }, (_, index) => (
+                                                    result?.posts?.length !== 0 ?
+                                                        <>
+                                                            <div className="flex justify-between items-center py-2 mt-16 mr-6">
+                                                                <nav className="relative z-0 inline-flex gap-3">
+                                                                    {/* Previous page button */}
                                                                     <button
-                                                                    key={index}
-                                                                    onClick={() => handlePageChange(index + 1)}
-                                                                    className={`-ml-px relative inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-xl font-bold outline-none focus:outline-none hover:bg-gray-50 w-20 justify-center h-20 ${currentPage === index + 1 ? 'bg-gray-100 text-blue-800' : ''}`}>
-                                                                    {index + 1}
+                                                                        onClick={() => handlePageChange(currentPage - 1)}
+                                                                        className={`relative inline-flex items-center px-2 py-2 rounded-full border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-20 justify-center h-20 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed hidden' : ''}`}
+                                                                        disabled={currentPage === 1}
+                                                                    >prev
                                                                     </button>
-                                                                ))}
 
 
-                                                                {/* Next page button */}
-                                                                <button
-                                                                    onClick={() => handlePageChange(currentPage + 1)}
-                                                                    className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-full rounded-r-md border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-20 justify-center h-20 next-pg ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                                                    // disabled={currentPage === totalPages}
-                                                                >next
-                                                                </button>
-                                                            </nav>
-                                                        </div>
+                                                                    {/* Page numbers */}
+                                                                    {Array.from({ length: totalPages }, (_, index) => (
+                                                                        <button
+                                                                        key={index}
+                                                                        onClick={() => handlePageChange(index + 1)}
+                                                                        className={`-ml-px relative inline-flex items-center px-4 py-2 rounded-full border border-gray-300 text-xl font-bold outline-none focus:outline-none hover:bg-gray-50 w-20 justify-center h-20 ${currentPage === index + 1 ? 'bg-gray-100 text-blue-800' : ''}`}>
+                                                                        {index + 1}
+                                                                        </button>
+                                                                    ))}
+
+
+                                                                    {/* Next page button */}
+                                                                    <button
+                                                                        onClick={() => handlePageChange(currentPage + 1)}
+                                                                        className={`-ml-px relative inline-flex items-center px-2 py-2 rounded-full rounded-r-md border border-gray-300 bg-white text-xl font-medium text-black tracking-extratight hover:bg-gray-50 w-20 justify-center h-20 next-pg ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                                                        // disabled={currentPage === totalPages}
+                                                                    >next
+                                                                    </button>
+                                                                </nav>
+                                                            </div>
+                                                        </>
                                                         :
-                                                        <div className="flex justify-between items-center py-2 mt-16 mr-6">                              
-                                                            <nav className="hidden"></nav>
-                                                        </div>
+                                                        <>
+                                                            <div className="flex justify-between items-center py-2 mt-16 mr-6">                              
+                                                                <nav className="hidden"></nav>
+                                                            </div>
+                                                        </>
                                                 }
-                                                {/* PAGINATION */}
+                                                {/* ARTICLES PAGINATION */}
                                             </div>
 
                                             {/* <BlogPostsPreview posts={result.posts} />
