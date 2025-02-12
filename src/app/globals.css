@@ -171,7 +171,7 @@ body {
     }
 
     .container {
-      width: 90% !important;
+      width: 80% !important;
       max-width: var(--root-max-width) !important;
     }
 
