@@ -2,7 +2,7 @@ import React from "react";
 // import type { Metadata } from "next";
 import head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
-// import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import { googleClient } from '@/constants';
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
@@ -62,8 +62,8 @@ const RootLayout = ({ children }) => {
                 <title>Travelbeta Blog: Home</title>
                 <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
                 
-                <link rel="icon" href="./assets/img/favicon.png" />
-                <link rel="stylesheet" href="./assets/css/style.css" />
+                <link rel="icon" href="/assets/img/favicon.png" />
+                <link rel="stylesheet" href="/assets/css/style.css" />
 
                 {/* Open Graph (OG) Meta Tags for Facebook, LinkedIn, etc. */}
                 <meta property="og:title" content="Travelbeta Blog: Home" />
@@ -79,9 +79,9 @@ const RootLayout = ({ children }) => {
                 {/* <meta name="twitter:image" content="https://example.com/twitter-image.jpg" /> */}
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-                {/* <GoogleOAuthProvider clientId={`${googleClient.map(item => item.key)}`}>  */}
+                <GoogleOAuthProvider clientId={`${googleClient.map(item => item.key)}`}> 
                     {children}
-                {/* </GoogleOAuthProvider> */}
+                </GoogleOAuthProvider>
                 <Analytics />
             </body>
         </html>

@@ -653,11 +653,11 @@ video {
 
   /* IE9 Compat Modes */
 
-  src: url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff') format('woff'), /* Pretty Modern Browsers */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.svg#svgFontName') format('svg');
+  src: url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff2") format('woff2'), /* Super Modern Browsers */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff") format('woff'), /* Pretty Modern Browsers */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.ttf")  format("truetype"), /* Safari, Android, iOS */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.svg#svgFontName") format("svg");
 
   /* Legacy iOS */
 
@@ -1316,6 +1316,14 @@ textarea#comments {
   margin-top: 1.5rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -1392,10 +1400,6 @@ textarea#comments {
   width: 1px !important;
 }
 
-.w-123\.3 {
-  width: 36rem;
-}
-
 .w-16 {
   width: 4rem;
 }
@@ -1432,12 +1436,20 @@ textarea#comments {
   width: 24rem;
 }
 
+.w-98 {
+  width: 25rem;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-screen {
   width: 100vw;
+}
+
+.w-99\.3 {
+  width: 27rem;
 }
 
 .max-w-\[400px\] {
@@ -1769,6 +1781,10 @@ textarea#comments {
   font-size: 1.25rem;
 }
 
+.text-10xl {
+  font-size: 1.3rem;
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -1843,6 +1859,31 @@ textarea#comments {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-300 {
+  --tw-text-opacity: 1;
+  color: rgb(203 213 225 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-100 {
+  --tw-text-opacity: 1;
+  color: rgb(241 245 249 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-200 {
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity, 1));
+}
+
+.text-slate-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity, 1));
 }
 
 .antialiased {

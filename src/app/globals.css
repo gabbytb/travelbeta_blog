@@ -85,11 +85,11 @@ body {
     @font-face {
         font-family: "firma";
         src: url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.eot"); /* IE9 Compat Modes */
-        src: url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff') format('woff'), /* Pretty Modern Browsers */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-            url('../../src/assets/fonts/br-firma/BRFirmaCW-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+        src: url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff2") format('woff2'), /* Super Modern Browsers */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.woff") format('woff'), /* Pretty Modern Browsers */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.ttf")  format("truetype"), /* Safari, Android, iOS */
+            url("../../src/assets/fonts/br-firma/BRFirmaCW-Bold.svg#svgFontName") format("svg"); /* Legacy iOS */
         font-weight: 700;
         font-display: swap;
         font-style: normal;
