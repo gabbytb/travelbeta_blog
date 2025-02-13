@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 import logo from "../assets/logo.png";
+
 
 
 
@@ -33,12 +35,12 @@ const Home = () => {
     const totalPages = result?.pagination?.lastPage; // Total Pages / Last Page
     const pageLimit = result?.pagination?.pageLimit; // Number of Articles per page
     const totalBlogPosts = result?.pagination?.postsRecord; // Total Articles
-    console.log("BLOG ARTICLES: ", posts, "\n",
-                "BLOG PAGINATION\n",
-                "Current Page: ", currentPage, "\n",
-                "Last Page: ", totalPages, "\n",
-                "Page Limit: ", pageLimit, "\n",
-                "Total Articles: ", totalBlogPosts);
+    // console.log("BLOG ARTICLES: ", posts, "\n",
+    //             "BLOG PAGINATION\n",
+    //             "Current Page: ", currentPage, "\n",
+    //             "Last Page: ", totalPages, "\n",
+    //             "Page Limit: ", pageLimit, "\n",
+    //             "Total Articles: ", totalBlogPosts);
     //////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////
 
@@ -68,7 +70,7 @@ const Home = () => {
             const custom_status = "";
             const page = changePage ? changePage : 1;
             const limit = pageLimit ? pageLimit : 3;
-            axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${limit}&page=${page}`)
+            await axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${limit}&page=${page}`)
             .then((response) => {
                 const { success, data, message } = response.data;
                 setResult(data);
@@ -76,6 +78,9 @@ const Home = () => {
             .catch((err) => console.error("Error fetching data:", err))
             .finally(() => setLoading(false));
 
+            // Enable retries with axios
+            await axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
+            
         };
         fetchPosts();
 
