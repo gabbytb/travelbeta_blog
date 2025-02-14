@@ -6,7 +6,7 @@ import { googleLogout } from "@react-oauth/google";
 // import PropTypes from "prop-types";
 import axios from "axios";
 import "@/assets/styles/tailwind.css";
-// import Sidebar from "@/components/Sidebar/Sidebar";
+import Sidebar from "@/components/Sidebar/Sidebar";
 // import UserDropdown from "@/components";
 // import HeaderStats from "@/components";
 // import DashboardTable from "@/views/admin/tables/DashboardTable";
@@ -170,7 +170,7 @@ const Dashboard = () => {
     return (
         <>
             {/***** LEFT-PANEL *****/}
-            {/* <Sidebar /> */}
+            <Sidebar />
             {/***** LEFT-PANEL *****/}
 
 
