@@ -12,6 +12,31 @@ import logo from "../assets/logo.png";
 
 
 
+// ********************************** //
+// *** CONVERT DATE STRING PARAMS *** // 
+// ********************************** //
+const convertDate = (dateString) => {
+    
+    const date = new Date(dateString);
+
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        // hour: '2-digit',
+        // minute: '2-digit',
+        hour12: true
+    };
+
+    return date.toLocaleString('en-GB', options);
+
+};
+// ********************************* //
+// ********************************* //    
+
+
+
+
 
 
 const Home = () => {
@@ -26,25 +51,25 @@ const Home = () => {
 
 
 
-    const [result, setResult] = useState({ posts: [], pagination: {} });   
+    const [result, setResult] = useState({ postData: [], pagination: {} });   
     //////////////////////////////////////////////////////////////////////////////////
     // PARSE TO CONSOLE
     //////////////////////////////////////////////////////////////////////////////////
-    const posts = result?.posts;
+    const posts = result?.postData;
     const currentPage = result?.pagination?.currentPage; // Current Page
     const totalPages = result?.pagination?.lastPage; // Total Pages / Last Page
     const pageLimit = result?.pagination?.pageLimit; // Number of Articles per page
     const totalBlogPosts = result?.pagination?.postsRecord; // Total Articles
-    // console.log("BLOG ARTICLES: ", posts, "\n",
-    //             "BLOG PAGINATION\n",
-    //             "Current Page: ", currentPage, "\n",
-    //             "Last Page: ", totalPages, "\n",
-    //             "Page Limit: ", pageLimit, "\n",
-    //             "Total Articles: ", totalBlogPosts);
+    console.log("BLOG ARTICLES: ", posts, "\n",
+                "BLOG PAGINATION\n",
+                "Current Page: ", currentPage, "\n",
+                "Last Page: ", totalPages, "\n",
+                "Page Limit: ", pageLimit, "\n",
+                "Total Articles: ", totalBlogPosts);
     //////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////
 
-
+    
 
     ////////////////////////////////////////////
     // SET PAGE TITLE
@@ -69,7 +94,7 @@ const Home = () => {
 
             const custom_status = "";
             const page = changePage ? changePage : 1;
-            const limit = pageLimit ? pageLimit : 3;
+            const limit = pageLimit ? pageLimit : 10;
             await axios.get(`/api/v1/admin/posts/manage?status=${custom_status}&limit=${limit}&page=${page}`)
             .then((response) => {
                 const { success, data, message } = response.data;
@@ -166,21 +191,21 @@ const Home = () => {
                                             <div className="flex flex-col w-full">
 
                                                 <div className="pb-18.5 flex justify-center">
-                                                    <h1 className="text-3xl font-extrabold tracking-tight">BLOG POSTS</h1>
+                                                    <h1 className="text-3xl font-extrabold tracking-tight">RECENT POSTS</h1>
                                                 </div>
 
 
                                                 {/* ARTICLES LISTING */}
                                                 {
-                                                    result?.posts?.length !== 0 ?
+                                                    result?.postData?.length !== 0 ?
                                                         <>
-                                                            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-12 w-full">
+                                                            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-x-12 gap-y-24 w-full">
                                                                 {
-                                                                    result?.posts?.map((post, index) => {
+                                                                    result?.postData?.map((post, index) => {
                                                                         return (
                                                                             <div key={index} className="shadow-md rounded-lg">
-                                                                                <figure className="w-full h-72">
-                                                                                    <Link href={`/${post.uri}`}>
+                                                                                <Link href={`/${post.url}`}>
+                                                                                    <figure className="w-full h-72">                                                                                    
                                                                                         <Image 
                                                                                             src="https://res.cloudinary.com/travelbetablog/image/upload/v1739138163/shutterstock_2377591127_sqqdq7.jpg"
                                                                                             alt={post.excerpt}
@@ -188,20 +213,55 @@ const Home = () => {
                                                                                             height={300}
                                                                                             className="w-full h-full"
                                                                                         />
-                                                                                    </Link>
-                                                                                </figure>
+                                                                                    </figure>
+                                                                                </Link>
 
-                                                                                <div className="p-5 flex flex-col gap-3">
-                                                                                    <Link href={`/${post.uri}`}>
-                                                                                        <h2 className="text-10xl/very-loose font-black text-slate-700">{post.title}</h2>
+
+                                                                                <div className="p-5 flex flex-col gap-5">
+                                                                                    <Link href={`/${post.url}`}>
+                                                                                        <h2 className="text-10xl/very-loose font-black text-slate-700 mb-2">{post.title}</h2>
+
+                                                                                        <small className="text-43xl font-semibold">{convertDate(post.released)}</small>
                                                                                     </Link>
+
+
 
                                                                                     <div className="flex flex-col gap-6 mb-3">
                                                                                         <p className="text-lg/relaxed font-medium">{post.excerpt}</p>                                                                   
-                                                                                        <Link className="w-52 flex justify-start text-11xl text-black font-medium py-3 px-4 shadow-lg rounded-lg gap-1"
-                                                                                            href={`/category/${post.categories}`}>
-                                                                                            <span className="text-red-500 indent-1">#</span>{post.categories}
-                                                                                        </Link>
+                                                                                        
+                                                                                        <div className="flex justify-between">
+                                                                                            <Link className="w-52 flex justify-start text-11xl text-black font-medium py-3 px-4 shadow-lg rounded-lg gap-1"
+                                                                                                href={`/category/${post.categories}`}>
+                                                                                                <p className="text-red-500 indent-1">#</p>{post.categories}                                                                                     
+                                                                                            </Link>
+                                                                                            {
+                                                                                                post.author.map((item, index) => {
+                                                                                                    if (!item.img || item.img === "") {
+                                                                                                        return (
+                                                                                                            <figure key={index} className="mr-1">
+                                                                                                                <Image src="/assets/img/thumbnail_one.png"
+                                                                                                                    alt="author pic"
+                                                                                                                    width={40}
+                                                                                                                    height={40}
+                                                                                                                    className="rounded-full"
+                                                                                                                />
+                                                                                                            </figure> 
+                                                                                                        );
+                                                                                                    } else {
+                                                                                                        return (
+                                                                                                            <Link key={index} href={`/${item.name}`} className="mr-1">
+                                                                                                                <Image src={item.img}
+                                                                                                                    alt="author pic"
+                                                                                                                    width={40}
+                                                                                                                    height={40}
+                                                                                                                    className="rounded-full"
+                                                                                                                />
+                                                                                                            </Link>                                                                                    
+                                                                                                        );
+                                                                                                    };
+                                                                                                })
+                                                                                            }
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -223,7 +283,7 @@ const Home = () => {
 
                                                 {/* ARTICLES PAGINATION */}
                                                 {
-                                                    result?.posts?.length !== 0 ?
+                                                    result?.postData?.length !== 0 ?
                                                         <>
                                                             <div className="flex justify-between items-center py-2 mt-20 mr-6">
                                                                 <nav className="relative z-0 inline-flex gap-3">
