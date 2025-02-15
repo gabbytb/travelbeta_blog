@@ -60,12 +60,12 @@ const Home = () => {
     const totalPages = result?.pagination?.lastPage; // Total Pages / Last Page
     const pageLimit = result?.pagination?.pageLimit; // Number of Articles per page
     const totalBlogPosts = result?.pagination?.postsRecord; // Total Articles
-    console.log("BLOG ARTICLES: ", posts, "\n",
-                "BLOG PAGINATION\n",
-                "Current Page: ", currentPage, "\n",
-                "Last Page: ", totalPages, "\n",
-                "Page Limit: ", pageLimit, "\n",
-                "Total Articles: ", totalBlogPosts);
+    // console.log("BLOG ARTICLES: ", posts, "\n",
+    //             "BLOG PAGINATION\n",
+    //             "Current Page: ", currentPage, "\n",
+    //             "Last Page: ", totalPages, "\n",
+    //             "Page Limit: ", pageLimit, "\n",
+    //             "Total Articles: ", totalBlogPosts);
     //////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////
 
@@ -236,7 +236,7 @@ const Home = () => {
                                                                                             </Link>
                                                                                             {
                                                                                                 post.author.map((item, index) => {
-                                                                                                    if (!item.img || item.img === "") {
+                                                                                                    if (!item.img) {
                                                                                                         return (
                                                                                                             <figure key={index} className="mr-1">
                                                                                                                 <Image src="/assets/img/thumbnail_one.png"
@@ -249,12 +249,12 @@ const Home = () => {
                                                                                                         );
                                                                                                     } else {
                                                                                                         return (
-                                                                                                            <Link key={index} href={`/${item.name}`} className="mr-1">
+                                                                                                            <Link key={index} href={`/author/${item.email}`} className="mr-1">
                                                                                                                 <Image src={item.img}
                                                                                                                     alt="author pic"
                                                                                                                     width={40}
                                                                                                                     height={40}
-                                                                                                                    className="rounded-full"
+                                                                                                                    className="rounded-full w-12 h-12"
                                                                                                                 />
                                                                                                             </Link>                                                                                    
                                                                                                         );
