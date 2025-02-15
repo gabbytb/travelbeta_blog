@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { googleClient } from '@/constants';
 import "./globals.css";
+import "@fortawesome/fontawesome-free/css/all.min.css"; 
 import { Analytics } from "@vercel/analytics/react"
 
 

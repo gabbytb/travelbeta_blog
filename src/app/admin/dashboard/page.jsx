@@ -5,12 +5,18 @@ import Link from "next/link";
 import { googleLogout } from "@react-oauth/google";
 // import PropTypes from "prop-types";
 import axios from "axios";
-import "@/assets/styles/tailwind.css";
-import Sidebar from "@/components/Sidebar/Sidebar";
-// import UserDropdown from "@/components";
+import dynamic from "next/dynamic";
+
+
+const Sidebar = dynamic(() => import("@/components/Sidebar/Sidebar"), {
+    ssr: false,
+});
+// const UserDropdown = dynamic(() => import("@/components/Dropdowns/UserDropdown"), {
+//     ssr: false,
+// });
 // import HeaderStats from "@/components";
 // import DashboardTable from "@/views/admin/tables/DashboardTable";
-
+import "@/assets/styles/tailwind.css";
 
 
 
@@ -19,8 +25,6 @@ import Sidebar from "@/components/Sidebar/Sidebar";
 
 const Dashboard = () => {
     
-
-    // const { push } = useRouter();
     // *************************** //
     // *** SET PAGE TITLE(SEO) *** //
     // *************************** //
@@ -33,78 +37,8 @@ const Dashboard = () => {
     // *************************** //
     // *** SET PAGE TITLE(SEO) *** //
     // *************************** //
-
-
-
-
-    
-    // ***************************************************************************
-    // CURRENT ACTIVE USER:-
-    // ***************************************************************************    
-    // const [isLoggedIn, setIsLoggedIn] = useState({});
-    // useEffect(() => {
-    //     const storedData = JSON?.parse(localStorage?.getItem("user"));
-    //     setIsLoggedIn(storedData);
-    // }, [isLoggedIn]);
-    // console.log("ACTIVE-USER: ", isLoggedIn);
-    // ***************************************************************************
-    // FUNCTION:-  Re-direct LOGGED-IN USERS from Sign-In page to Dashboard
-    // ***************************************************************************
-    // useEffect(() => {   
-    //     if (!firstName) {
-    //         function redirToSignInIfNotLoggedIn() {                                     
-    //             push("/user/login");
-    //         };
-    //         redirToSignInIfNotLoggedIn();
-    //     };
-    // }, []);
-    // ***************************************************************************
-    // FUNCTION TO LOG-OUT CURRENT ACTIVE USER
-    // ***************************************************************************
-    // function logOut() {
-    //     // // Set Log Out status in Local Storage
-    //     // const sessionend = "You are Logged out";
-    //     // localStorage.setItem('logout', sessionend);
-    //     // // End of User Session:- Clear User Details from Local Storage
-    //     // localStorage.removeItem("user");
-    //     // log out function to log the user out of google and set the profile array to null    
-    //     googleLogout();
-    //     // redirect to Login Page    
-    //     const redirToLogin = "/user/login";
-    //     push(redirToLogin);
-    // };
-    // ***************************************************************************
-    // DESTRUCTURE CURRENT ACTIVE USER PROPS:-
-    // ***************************************************************************
-    // const userId = isLoggedIn?.id ? isLoggedIn?.id : logOut();
-    // // console.log("Logged-In User ID: ", userId);
-    // const userName = isLoggedIn?.username ? isLoggedIn?.user_name : logOut(); 
-    // // console.log("Logged-In Username: ", userName);
-    // const firstName = isLoggedIn?.firstname ? isLoggedIn?.first_name : logOut();
-    // // console.log("Logged-In User First Name: ", firstName);
-    // const lastName = isLoggedIn?.lastname ? isLoggedIn?.last_name : logOut();            
-    // // console.log("Logged-In User Last Name: ", lastName);
-    // const userRoles = isLoggedIn?.roles ? isLoggedIn?.roles : logOut();
-    // // console.log("Logged-In User E-mail: ", userRoles);    
-    // const displayImg = isLoggedIn?.userdp !== "" ? isLoggedIn?.userdp : "";
-    // // console.log("Logged-In User DP: ", displayImg);    
-    // // const userBio = isLoggedIn?.about_me ? isLoggedIn?.about_me : '';
-    // // console.log("Logged-In User BIO: ", userBio);    
-    // const expiresAt = isLoggedIn?.tokenexpires ? isLoggedIn?.expires_at : logOut();
-    // // console.log("Logged-In User Session Exp: ", expiresAt);
-    // ***************************************************************************
-    // ***************************************************************************
  
 
-   
-    
-    // useEffect(() => {
-    //     if (expiresAt <= 0) {
-    //         localStorage?.removeItem("user");
-    //         const redirToLogin = "/user/login";
-    //         push(redirToLogin);
-    //     };
-    // }, [expiresAt]);
 
 
 
@@ -183,8 +117,8 @@ const Dashboard = () => {
                     <div className="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
                     
                         {/* Brand */}
-                        <Link className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-                            href="/admin/dashboard" onClick={(e) => e.preventDefault()}>Dashboard 
+                        <Link href="/admin/dashboard"
+                              className="text-white text-sm uppercase hidden lg:inline-block font-semibold">Dashboard 
                         </Link>
                         {/* Brand */}
 
@@ -212,7 +146,7 @@ const Dashboard = () => {
 
                         {/* User */}
                         <ul className="flex-col md:flex-row list-none items-center hidden md:flex">
-                            {/* <UserDropdown userId={userId} userName={userName} displayImg={displayImg} userRoles={userRoles} logOut={logOut} /> */}
+                            {/* <UserDropdown userId={userId} email={email} displayImg={displayImg} userRoles={userRoles} logOut={logOut} /> */}
                         </ul>
                     </div>
                 </nav>
@@ -223,7 +157,7 @@ const Dashboard = () => {
                 <div className="relative bg-blue-900 md:pt-32 pb-32 pt-12">                                 
                     <div className="px-4 md:px-10 pb-6 mx-auto w-full">  
                         <p className="w-full lg:w-6/12 xl:w-3/12 px-4 text-3xl text-white">     
-                            {/* Welcome <span className="font-bold text-white">{lastName}</span> */}
+                            {/* Welcome <span className="font-bold text-white">{lastname}</span> */}
                         </p>
                     </div>     
   
