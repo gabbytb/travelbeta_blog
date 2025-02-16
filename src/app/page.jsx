@@ -5,6 +5,7 @@ import Image from "next/image";
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import logo from "../assets/logo.png";
+import Preloader from "@/components/Preloader";
 
 
 
@@ -42,7 +43,7 @@ const convertDate = (dateString) => {
 const Home = () => {
 
 
-    console.clear();
+    // console.clear();
     
 
     
@@ -87,11 +88,14 @@ const Home = () => {
     // GET ALL POST ARTICLES
     ////////////////////////////////////////////
     useEffect(() => {
-
-        const fetchPosts = async () => {   
+        
+        setLoading(true);
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        
+        const fetchPosts = async () => {
 
             setLoading(true);
-
+            
             const custom_status = "";
             const page = changePage ? changePage : 1;
             const limit = pageLimit ? pageLimit : 10;
@@ -107,7 +111,9 @@ const Home = () => {
             await axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
             
         };
-        fetchPosts();
+        setTimeout(fetchPosts, 300);
+
+
 
     }, [changePage]);
     ////////////////////////////////////////////  
@@ -179,15 +185,30 @@ const Home = () => {
                 {
                     loading ? 
                             (
-                                <div className="h-screen w-full flex justify-center items-center">
-                                    <p className="text-center">Loading...</p>
-                                </div>
+                                <>
+                                    <section className="w-full flex justify-center items-center">
+                                        <div className="container mx-auto flex mt-28 mb-20">
+                                            <div className="flex flex-col w-full">
+
+                                                <div className="pb-18.5 flex flex-col justify-center items-center gap-40">
+                                                    <h1 className="text-3xl font-extrabold tracking-tight">RECENT POSTS</h1>
+                                                    
+                                                    <div className="flex flex-col gap-12">
+                                                        <Preloader />
+                                                        <p>Loading.....</p>
+                                                    </div>
+                                                </div>                                            
+                                            
+                                            </div>
+                                        </div>
+                                    </section>
+                                </>                                
                             ) 
                             : 
                             (
                                 <>
                                     <section>
-                                        <div className="container mx-auto flex mt-20 mb-20">
+                                        <div className="container mx-auto flex mt-28 mb-20">
                                             <div className="flex flex-col w-full">
 
                                                 <div className="pb-18.5 flex justify-center">

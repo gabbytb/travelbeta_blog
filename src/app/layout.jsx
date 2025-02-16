@@ -63,6 +63,9 @@ const RootLayout = ({ children }) => {
                 <title>Travelbeta Blog: Home</title>
                 <meta name="description" content="Travel with us to breathtaking destinations, hidden gems, and exciting adventures. Get inspired and discover the world's best-kept secrets." />
                 
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="robots" content="noindex, noarchive" />
+                
                 <link rel="icon" href="/assets/img/favicon.png" />
                 <link rel="stylesheet" href="/assets/css/style.css" />
 
