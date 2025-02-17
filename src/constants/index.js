@@ -19,7 +19,7 @@ import { blogbg, donationbg2, donationbg3, mayokun, wande, wura } from "@/assets
 // PRODUCTION Data [GOOGLE OAuth CLIENT ID]
 export const googleClient = [    
     {
-        // PRODUCTION Data
+        // PRODUCTION Data  - igabrieloyebanji@gmail.com
         key: "419080937182-j4iitj0ast2lc7fa7nkcisqd8oo2g6m1.apps.googleusercontent.com"
     },
 ]

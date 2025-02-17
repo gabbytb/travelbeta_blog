@@ -45,7 +45,7 @@ const convertDate = (dateString) => {
 const Dashboard = ({ color, isLoggedIn }) => {
     
 
-    console.clear();
+    // console.clear();
 
     const [isLoading, setIsLoading] = useState(true);
     const [activeDisplay, setActiveDisplay] = useState("blogPosts");
@@ -105,7 +105,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
     const userBio = isLoggedIn?.bio ? isLoggedIn?.bio : '';
     // console.log("Logged-In User BIO: ", userBio);    
     let expiresAt = isLoggedIn?.tokenexpires > 0 ? isLoggedIn?.tokenexpires : logOut();
-    console.log("Logged-In User Session Exp: ", expiresAt);
+    // console.log("Logged-In User Session Exp: ", expiresAt);
     // ***************************************************************************
     // ***************************************************************************
 
@@ -159,7 +159,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
                         
             setIsLoading(true);           
 
-            var timer = setTimeout(fetchData, 30000);   // Delay execution of findAllStaffs by 1800ms
+            var timer = setTimeout(fetchData, 300);   // Delay execution of findAllStaffs by 1800ms
             return () => {
                 clearTimeout(timer);                  // Clean up timer if component unmounts or token changes
             };
