@@ -61,12 +61,10 @@ const Home = () => {
     const totalPages = result?.pagination?.lastPage; // Total Pages / Last Page
     const pageLimit = result?.pagination?.pageLimit; // Number of Articles per page
     const totalBlogPosts = result?.pagination?.postsRecord; // Total Articles
-    // console.log("BLOG ARTICLES: ", posts, "\n",
-    //             "BLOG PAGINATION\n",
-    //             "Current Page: ", currentPage, "\n",
-    //             "Last Page: ", totalPages, "\n",
-    //             "Page Limit: ", pageLimit, "\n",
-    //             "Total Articles: ", totalBlogPosts);
+
+    const [changePage, setChangePage] = useState(currentPage);
+    // console.log("BLOG ARTICLES: ", posts, "\n"
+    
     //////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////
 
@@ -76,14 +74,15 @@ const Home = () => {
     // SET PAGE TITLE
     ////////////////////////////////////////////
     useEffect(() => {
-        document.title = "Travelbeta Blog: Home";
+        const pageTitle = "Home",
+              siteName = "Travelbeta Blog";
+        document.title = `${siteName}: ${pageTitle}`;
     }, []);
     ////////////////////////////////////////////
     ////////////////////////////////////////////
 
 
 
-    const [changePage, setChangePage] = useState(currentPage);
     ////////////////////////////////////////////
     // GET ALL POST ARTICLES
     ////////////////////////////////////////////
@@ -227,14 +226,14 @@ const Home = () => {
                                                                             <div key={index} className="shadow-md rounded-lg">
                                                                                 <Link href={`/${post?.url}`}>
                                                                                     {  
-                                                                                        post?.images?.map((item, index) => {
+                                                                                        post?.imgs?.map((item, index) => {
                                                                                             if (item?.featured === true) {
                                                                                                 return (
                                                                                                     <figure key={index} className="w-full h-72">                                                                                    
                                                                                                         <Image 
-                                                                                                            src="https://res.cloudinary.com/travelbetablog/image/upload/v1739138163/shutterstock_2377591127_sqqdq7.jpg"
-                                                                                                            // src={item?.uri}
-                                                                                                            alt="placeholder img"
+                                                                                                            // src="https://res.cloudinary.com/travelbetablog/image/upload/v1739138163/shutterstock_2377591127_sqqdq7.jpg"
+                                                                                                            src={item?.url}
+                                                                                                            alt={item?.alt}
                                                                                                             width={350} 
                                                                                                             height={300}
                                                                                                             className="w-full h-full"
@@ -257,7 +256,7 @@ const Home = () => {
 
 
                                                                                     <div className="flex flex-col gap-6 mb-3">
-                                                                                        <p className="text-lg/relaxed font-medium">{post?.excerpt?.substring(0, 150)+"..."}</p>                                                                   
+                                                                                        <p className="text-lg/relaxed font-medium">{post?.excerpt+"..."}</p>                                                                   
                                                                                         
                                                                                         <div className="flex justify-between">
                                                                                             <Link className="w-52 flex justify-start text-11xl text-black font-medium py-3 px-4 shadow-lg rounded-lg gap-1"

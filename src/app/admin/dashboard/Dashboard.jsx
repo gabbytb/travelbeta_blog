@@ -85,7 +85,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
         // log out function to log the user out of google and set the profile array to null
         googleLogout();
         // redirect to Login Page
-        push("/user/login");
+        push("/user/signin");
     };
     // ***************************************************************************
     // DESTRUCTURE CURRENT ACTIVE USER PROPS:-
@@ -127,6 +127,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
     // console.log("BLOG ARTICLES: ", posts, "\n",
     //             "BLOG PAGINATION\n",
     //             "Current Page: ", currentPage, "\n",
+    //             "Next Page: ", pageChange, "\n",
     //             "Last Page: ", totalPages, "\n",
     //             "Page Limit: ", pageLimit, "\n",
     //             "Total Articles: ", totalBlogPosts);

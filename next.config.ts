@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
                 protocol: "https",
                 hostname: "res.cloudinary.com", // Replace with the actual domain
             },
+            {
+                protocol: "https",
+                hostname: "lh3.googleusercontent.com",
+            }
         ],
     },
 };

@@ -20,7 +20,7 @@ import { blogbg, donationbg2, donationbg3, mayokun, wande, wura } from "@/assets
 export const googleClient = [    
     {
         // PRODUCTION Data
-        key: '1014327754286-emt2refui7rqci9tfrnc5ssi8id3m95a.apps.googleusercontent.com',
+        key: "419080937182-j4iitj0ast2lc7fa7nkcisqd8oo2g6m1.apps.googleusercontent.com"
     },
 ]
 
