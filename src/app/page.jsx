@@ -225,39 +225,48 @@ const Home = () => {
                                                                     result?.postData?.map((post, index) => {
                                                                         return (
                                                                             <div key={index} className="shadow-md rounded-lg">
-                                                                                <Link href={`/${post.url}`}>
-                                                                                    <figure className="w-full h-72">                                                                                    
-                                                                                        <Image 
-                                                                                            src="https://res.cloudinary.com/travelbetablog/image/upload/v1739138163/shutterstock_2377591127_sqqdq7.jpg"
-                                                                                            alt={post.excerpt}
-                                                                                            width={350} 
-                                                                                            height={300}
-                                                                                            className="w-full h-full"
-                                                                                        />
-                                                                                    </figure>
+                                                                                <Link href={`/${post?.url}`}>
+                                                                                    {  
+                                                                                        post?.images?.map((item, index) => {
+                                                                                            if (item?.featured === true) {
+                                                                                                return (
+                                                                                                    <figure key={index} className="w-full h-72">                                                                                    
+                                                                                                        <Image 
+                                                                                                            src="https://res.cloudinary.com/travelbetablog/image/upload/v1739138163/shutterstock_2377591127_sqqdq7.jpg"
+                                                                                                            // src={item?.uri}
+                                                                                                            alt="placeholder img"
+                                                                                                            width={350} 
+                                                                                                            height={300}
+                                                                                                            className="w-full h-full"
+                                                                                                        />
+                                                                                                    </figure>
+                                                                                                );
+                                                                                            };
+                                                                                        })                                                                      
+                                                                                    }
                                                                                 </Link>
 
 
                                                                                 <div className="p-5 flex flex-col gap-5">
-                                                                                    <Link href={`/${post.url}`}>
-                                                                                        <h2 className="text-10xl/very-loose font-black text-slate-700 mb-2">{post.title}</h2>
+                                                                                    <Link href={`/${post?.url}`}>
+                                                                                        <h2 className="text-10xl/very-loose font-black text-slate-700 mb-2">{post?.title}</h2>
 
-                                                                                        <small className="text-43xl font-semibold">{convertDate(post.released)}</small>
+                                                                                        <small className="text-43xl font-semibold">{convertDate(post?.released)}</small>
                                                                                     </Link>
 
 
 
                                                                                     <div className="flex flex-col gap-6 mb-3">
-                                                                                        <p className="text-lg/relaxed font-medium">{post.excerpt}</p>                                                                   
+                                                                                        <p className="text-lg/relaxed font-medium">{post?.excerpt?.substring(0, 150)+"..."}</p>                                                                   
                                                                                         
                                                                                         <div className="flex justify-between">
                                                                                             <Link className="w-52 flex justify-start text-11xl text-black font-medium py-3 px-4 shadow-lg rounded-lg gap-1"
-                                                                                                href={`/category/${post.categories}`}>
-                                                                                                <p className="text-red-500 indent-1">#</p>{post.categories}                                                                                     
+                                                                                                href={`/category/${post?.categories}`}>
+                                                                                                <p className="text-red-500 indent-1">#</p>{post?.categories}                                                                                     
                                                                                             </Link>
                                                                                             {
-                                                                                                post.author.map((item, index) => {
-                                                                                                    if (!item.img) {
+                                                                                                post?.author?.map((item, index) => {
+                                                                                                    if (!item?.img) {
                                                                                                         return (
                                                                                                             <figure key={index} className="mr-1">
                                                                                                                 <Image src="/assets/img/thumbnail_one.png"
@@ -270,8 +279,8 @@ const Home = () => {
                                                                                                         );
                                                                                                     } else {
                                                                                                         return (
-                                                                                                            <Link key={index} href={`/author/${item.email}`} className="mr-1">
-                                                                                                                <Image src={item.img}
+                                                                                                            <Link key={index} href={`/author/${item?.email}`} className="mr-1">
+                                                                                                                <Image src={item?.img}
                                                                                                                     alt="author pic"
                                                                                                                     width={40}
                                                                                                                     height={40}
