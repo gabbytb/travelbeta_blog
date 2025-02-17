@@ -519,6 +519,7 @@ export default {
         '135.3': '52.3rem',   // investment input width
         '136': '56rem',
         '140': '61.3rem',
+        '164': '26rem',
         '182.3': '86.3rem',
         '183': '87.3rem',
         '630': '63rem',
