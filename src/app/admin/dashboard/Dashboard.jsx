@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect,} from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, redirect } from "next/navigation";
 import { googleLogout } from "@react-oauth/google";
 import PropTypes from "prop-types";
 import axios from "axios";
@@ -85,7 +85,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
         // log out function to log the user out of google and set the profile array to null
         googleLogout();
         // redirect to Login Page
-        push("/user/signin");
+        redirect("/user/signin");
     };
     // ***************************************************************************
     // DESTRUCTURE CURRENT ACTIVE USER PROPS:-
