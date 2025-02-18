@@ -221,7 +221,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
                 <div className="relative md:ml-64 bg-blueGray-100">                    
                    
                     <nav className="absolute top-0 left-0 w-full z-1 bg-transparent md:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
-                        <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">                            
+                        <div className="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">                            
                             
                             {/* Brand */}
                             <Link className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
@@ -432,7 +432,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
             <div className="relative md:ml-64 bg-blueGray-100">                    
                    
                 <nav className="absolute top-0 left-0 w-full z-1 bg-transparent lg:flex-row md:flex-nowrap md:justify-start flex items-center p-4">
-                    <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">                            
+                    <div className="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">                            
                         
                         {/* Brand */}
                         <Link className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
@@ -473,7 +473,7 @@ const Dashboard = ({ color, isLoggedIn }) => {
 
 
                 {/* Header */}
-                <div className="relative bg-blue-900 md:pt-32 pb-32 pt-12">
+                <div className="relative bg-blue-900 xs:pt-12 md:pt-32 pb-32">
             
                     {/* Welcome Logged-In User */}
                     <div className="px-4 md:px-10 pb-6 mx-auto w-full">  
