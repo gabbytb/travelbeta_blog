@@ -2107,10 +2107,6 @@ textarea#comments {
   z-index: 99;
 }
 
-.z-auto {
-  z-index: auto;
-}
-
 .float-right {
   float: right;
 }
@@ -3959,18 +3955,6 @@ body {
     left: 0px;
   }
 
-  .xs\:right-0 {
-    right: 0px;
-  }
-
-  .xs\:-left-2 {
-    left: -0.5rem;
-  }
-
-  .xs\:top-0 {
-    top: 0px;
-  }
-
   .xs\:inline-block {
     display: inline-block;
   }
@@ -3987,10 +3971,6 @@ body {
     width: 100%;
   }
 
-  .xs\:flex-1 {
-    flex: 1 1 0%;
-  }
-
   .xs\:pt-12 {
     padding-top: 3rem;
   }
@@ -4005,20 +3985,8 @@ body {
     position: fixed;
   }
 
-  .sm\:absolute {
-    position: absolute;
-  }
-
   .sm\:relative {
     position: relative;
-  }
-
-  .sm\:top-0 {
-    top: 0px;
-  }
-
-  .sm\:z-50 {
-    z-index: 50;
   }
 
   .sm\:ml-16 {
