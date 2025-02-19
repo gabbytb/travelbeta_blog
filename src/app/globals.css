@@ -96,6 +96,7 @@ body {
     }
     
     :root {
+      
       --before-bg-color: rgba(24, 26, 27, 0.3);
       --after-bg-color: rgba(24, 26, 27, 0.3);
 
@@ -149,17 +150,25 @@ body {
       --admin-total-revenue-card-2: rgb(124, 64, 135, 1);
       --admin-total-revenue-card-3: rgba(8, 78, 187, 1);
     }
-  
+    
+    /**
+        1. Correct the line height in all browsers.
+        2. Prevent adjustments of font size after orientation changes in iOS.
+    */
     html {
-      font-size: var(--root-font-size);
-      font-family: var(--root-font-family);
-      line-height: var(--root-line-height);
+      font-size: var(--root-font-size);    
+      line-height: var(--root-line-height); /* 1 */
       box-sizing: border-box;
       padding: 0;
       margin: 0;
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%; /* 2 */
     }
     
+    body {
+      font-family: var(--root-font-family);
+    }
+
     h1,h2,h3,h4,h5,h6,li,p,a,blockquote {
       color: var(--color-dark-blue);
       font-family: var(--font-family-firma);
