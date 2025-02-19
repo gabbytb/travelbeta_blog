@@ -2034,10 +2034,6 @@ textarea#comments {
   position: relative;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .inset-0 {
   inset: 0px;
 }
@@ -2112,10 +2108,6 @@ textarea#comments {
 
 .z-50 {
   z-index: 50;
-}
-
-.z-99 {
-  z-index: 99;
 }
 
 .float-right {
@@ -2595,10 +2587,6 @@ textarea#comments {
 
 .w-9\/12 {
   width: 75%;
-}
-
-.w-9\/8 {
-  width: 94%;
 }
 
 .w-96 {
@@ -3091,10 +3079,6 @@ textarea#comments {
   background-color: var(--bg-dark-blue);
 }
 
-.bg-skin-officeblue {
-  background-color: var(--root-article-read-more);
-}
-
 .bg-skin-signup-signin-bg {
   background-color: var(--login-bg-black-color);
 }
@@ -3267,6 +3251,10 @@ textarea#comments {
   padding-bottom: 0.5rem;
 }
 
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
 .pb-3 {
   padding-bottom: 0.75rem;
 }
@@ -3349,10 +3337,6 @@ textarea#comments {
 
 .pt-4 {
   padding-top: 1rem;
-}
-
-.pt-6 {
-  padding-top: 1.5rem;
 }
 
 .pt-8 {
@@ -3659,10 +3643,6 @@ textarea#comments {
   opacity: 0;
 }
 
-.opacity-100 {
-  opacity: 1;
-}
-
 .opacity-30 {
   opacity: 0.3;
 }
@@ -3673,10 +3653,6 @@ textarea#comments {
 
 .opacity-75 {
   opacity: 0.75;
-}
-
-.opacity-85 {
-  opacity: 0.85;
 }
 
 .opacity-90 {
@@ -3751,20 +3727,12 @@ textarea#comments {
   transition-duration: 150ms;
 }
 
-.duration-100 {
-  transition-duration: 100ms;
-}
-
 .duration-150 {
   transition-duration: 150ms;
 }
 
 .duration-300 {
   transition-duration: 300ms;
-}
-
-.ease-in {
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 .ease-in-out {
@@ -3936,10 +3904,6 @@ body {
   max-height: 13rem;
 }
 
-.peer\/showLabel:checked ~ .peer-checked\/showLabel\:max-h-64 {
-  max-height: 16rem;
-}
-
 .data-\[focus\]\:bg-blue-100[data-focus] {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity, 1));
@@ -3958,24 +3922,8 @@ body {
 }
 
 @media (min-width: 601px) {
-  .xs\:absolute {
-    position: absolute;
-  }
-
   .xs\:relative {
     position: relative;
-  }
-
-  .xs\:left-0 {
-    left: 0px;
-  }
-
-  .xs\:inline-block {
-    display: inline-block;
-  }
-
-  .xs\:flex {
-    display: flex;
   }
 
   .xs\:hidden {
@@ -4070,10 +4018,6 @@ body {
 
   .sm\:min-w-full {
     min-width: 100%;
-  }
-
-  .sm\:flex-1 {
-    flex: 1 1 0%;
   }
 
   .sm\:basis-1\/2 {
@@ -4200,10 +4144,6 @@ body {
     width: 100%;
   }
 
-  .lg\:min-w-full {
-    min-width: 100%;
-  }
-
   .lg\:basis-5\/12 {
     flex-basis: 41.666667%;
   }
@@ -4214,10 +4154,6 @@ body {
 
   .lg\:flex-row {
     flex-direction: row;
-  }
-
-  .lg\:flex-col {
-    flex-direction: column;
   }
 
   .lg\:justify-start {
