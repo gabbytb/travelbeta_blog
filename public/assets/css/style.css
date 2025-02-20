@@ -2505,6 +2505,10 @@ textarea#comments {
   height: 100vh;
 }
 
+.h-169 {
+  height: 4.5rem;
+}
+
 .max-h-14 {
   max-height: 3.5rem;
 }
@@ -3077,6 +3081,10 @@ textarea#comments {
 
 .bg-skin-darkblue {
   background-color: var(--bg-dark-blue);
+}
+
+.bg-skin-officeblue {
+  background-color: var(--root-article-read-more);
 }
 
 .bg-skin-signup-signin-bg {
@@ -4066,6 +4074,10 @@ body {
 
   .sm\:pt-20 {
     padding-top: 5rem;
+  }
+
+  .sm\:pt-21\.8 {
+    padding-top: 6.8rem;
   }
 
   .sm\:font-black {
