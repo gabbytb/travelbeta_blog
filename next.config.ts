@@ -18,6 +18,10 @@ export default nextConfig;
 
 
 
+
+
+
+
 // JAVASCRIPT VERSION
 // const nextConfig = {
 //     /* config options here */
