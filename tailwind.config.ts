@@ -61,6 +61,7 @@ export default {
       '41xl': '1.54rem',
       '42xl': '1.46rem',
       '43xl': '0.89rem',
+      '44xl': '0.96rem',
     },
     letterSpacing: {
       supertight: '0.015em',
